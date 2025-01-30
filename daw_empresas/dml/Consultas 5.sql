@@ -59,3 +59,5 @@ where d.nomdep = 'SECTOR SERVICIOS'
 order by fechaing;
 
 -- Actividad 14
+SELECT *
+from empleados;
