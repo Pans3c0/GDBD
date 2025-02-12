@@ -68,7 +68,7 @@ select d.nomdep, round(avg(e.salario)) as salario_media
 from EMPLEADOS e, DEPARTAMENTOS d
 where e.numdep = d.numdep
 group by d.NOMDEP
-where e.salario_media > 
+having avg(e.salario) > 
     (select avg(salario) as salario_medio
     from empleados)
 order by d.nomdep;

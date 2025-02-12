@@ -57,23 +57,37 @@ order by salario desc;
 
 
 -- Actividad 10
-
+-- Obtener los nombres y sueldos anuales (se suponen 14 pagas), de los empleados del departamento 100. Presentarlos por orden decreciente de sueldos.
+select NOMEMP, salario*14 as "Salario Anual"
+from EMPLEADOS
+where NUMDEP = 100;
 
 
 -- Actividad 11
-select salario, nomemp
+select nomemp, salario 
 from empleados
 where comision >= (0.10*salario);
 
 
 -- Actividad 12
+-- En una campaña de ayuda familiar se ha decidido dar a los empleados una paga extra de 100€ por hijo, a partir del tercero inclusive,
+-- Obtener por orden alfabético para estos empleados: nombre, salario, paga y salario total que van a cobrar, incluyendo esta paga extra.
 select nomemp, salario, (100*numhijos) as "extra", (salario + (100*numhijos)) as "total"
-from empleados;
+from empleados
+where numhijos >= 3;
 
 --Actividad 13 
-select nomemp
+select nomemp, salario, (100*numhijos) as "extra", (salario + (100*numhijos)) as "total"
 from empleados
-where numhijos*100;
+where numhijos > 2
+and  (100 * numhijos) < (salario * 0.10);
+
+
+-- Actvidad 14
+select NOMEMP, salario+comision as "Salario Total"
+from EMPLEADOS
+where NUMDEP = 112
+order by  salario desc, nomemp;
 
 
 --Actividad 15

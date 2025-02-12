@@ -27,7 +27,7 @@ where numemp not in(
 order by nomemp;
 
 
--- Actividad 11
+-- Actividad 11 REVISAR
 select e.nomemp, d.tipodir
 from empleados e
 inner join departamentos d

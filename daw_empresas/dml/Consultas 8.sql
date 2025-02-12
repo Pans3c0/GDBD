@@ -1,3 +1,4 @@
+-- Alumnos BBDD
 -- Actividades 1
 select nombre from nuevos
 UNION
@@ -55,7 +56,7 @@ left join leidos l
 on p.cod_libro = l.cod_libro;
 
 -- Actividades 7
-select c.nombre, p.especialidad, count(p.dni)
+select c.nombre, p.especialidad, count(p.dni) as "Nº De Profesores"
 from centros c 
 left join profesores p 
 on c.cod_centro = p.cod_centro
@@ -64,3 +65,22 @@ order by c.nombre
 ;
 
 -- Actividades 8
+select c.cod_centro, nombre, count(dni) as "Empleados"
+from centros c left join personal p 
+on c.cod_centro = p.cod_centro 
+group by c.COD_CENTRO, nombre 
+order by c.COD_CENTRO, nombre;
+
+
+-- Actividades 9 
+select especialidad
+from profesores
+group by especialidad 
+having count(dni) =
+    (select min(count(dni))
+    from PROFESORES
+    group by especialidad);
+
+
+-- Actividad 10
+
